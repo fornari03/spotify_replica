@@ -1,21 +1,24 @@
 import React from "react";
 import SingleItem from "./SingleItem";
-import { artistArray } from "../../assets/database/artists";
 
-const ItemList = ({ title, items }) => {
+const ItemList = ({ title, items, itemsArray, path, idPath }) => {
   return (
     <div className="item-list">
       <div className="item-list__header">
         <h2>{title} populares</h2>
-        <a className="item-list__link" href="/">
+        <a href={path} className="item-list__link">
           Mostrar tudo
         </a>
       </div>
       <div className="item-list__container">
-        {artistArray
+        {itemsArray
           .filter((_, index) => index < items)
           .map((currObj, index) => (
-            <SingleItem {...currObj} key={`${title}-${index}`} />
+            <SingleItem
+              idPath={idPath}
+              {...currObj}
+              key={`${title}-${index}`}
+            />
           ))}
       </div>
     </div>
