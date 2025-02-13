@@ -6,10 +6,20 @@ import { artistArray } from "../../assets/database/artists";
 
 const Song = () => {
   const { id } = useParams();
+
   const songObj = songsArray.filter((song) => song.id === parseInt(id))[0];
+
   const artistObj = artistArray.filter(
     (artist) => artist.name === songObj.artist
   )[0];
+
+  const songsArrayFromArtist = songsArray.filter(
+    (song) => song.artist === songObj.artist
+  );
+
+  const songIndex = songsArrayFromArtist.findIndex(
+    (song) => song.id === songObj.id
+  );
 
   return (
     <div className="song">
@@ -29,7 +39,7 @@ const Song = () => {
           />
         </Link>
 
-        <Player duration={songObj.duration} />
+        <Player songsArrayFromArtist={songsArrayFromArtist} songIndex={songIndex} duration={songObj.duration} />
 
         <div>
           <p className="song__name">{songObj.name}</p>
