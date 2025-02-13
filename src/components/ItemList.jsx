@@ -1,5 +1,6 @@
 import React from "react";
 import SingleItem from "./SingleItem";
+import { artistArray } from "../../assets/database/artists";
 
 const ItemList = ({ title, items }) => {
   return (
@@ -11,10 +12,10 @@ const ItemList = ({ title, items }) => {
         </a>
       </div>
       <div className="item-list__container">
-        {Array(items)
-          .fill()
-          .map((_, index) => (
-            <SingleItem key={`${title}-${index}`} />
+        {artistArray
+          .filter((_, index) => index < items)
+          .map((currObj, index) => (
+            <SingleItem {...currObj} key={`${title}-${index}`} />
           ))}
       </div>
     </div>
