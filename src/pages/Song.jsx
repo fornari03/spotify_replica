@@ -2,7 +2,9 @@ import React from "react";
 import Player from "../components/Player";
 import { Link } from "react-router-dom";
 
-const Song = () => {
+const Song = ({ artistName }) => {
+  //const songId = 
+
   return (
     <div className="song">
       <div className="song__container">
