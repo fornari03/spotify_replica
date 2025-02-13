@@ -8,24 +8,27 @@ import { songsArray } from "../../assets/database/songs";
 
 const Artist = () => {
   const { id } = useParams();
-  const artistObj = artistArray.filter(
+  const { name, banner } = artistArray.filter(
     (artist) => artist.id === parseInt(id)
   )[0];
   const songsArrayFromArtist = songsArray.filter(
-    (song) => song.artist === artistObj.name
+    (song) => song.artist === name
   );
 
-  const randomIdFromArtist = songsArrayFromArtist[Math.floor(Math.random() * songsArrayFromArtist.length)].id;
+  const randomIdFromArtist =
+    songsArrayFromArtist[
+      Math.floor(Math.random() * songsArrayFromArtist.length)
+    ].id;
 
   return (
     <div className="artist">
       <div
         className="artist__header"
         style={{
-          backgroundImage: `linear-gradient(to bottom, var(--_shade), var(--_shade)), url(${artistObj.banner})`,
+          backgroundImage: `linear-gradient(to bottom, var(--_shade), var(--_shade)), url(${banner})`,
         }}
       >
-        <h2 className="artist__title">{artistObj.name}</h2>
+        <h2 className="artist__title">{name}</h2>
       </div>
 
       <div className="artist__body">
