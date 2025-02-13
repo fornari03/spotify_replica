@@ -1,4 +1,5 @@
 /* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
 body {
   background-color: black;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 a {
@@ -16,14 +17,42 @@ a {
   text-decoration: none;
 }
 
+#root {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Header */
+
 .header {
-    padding: 10px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .header__link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Main */
+
+.main {
+  background-color: black;
+  padding: 20px;
+  margin: 0 10px 10px;
+  border-radius: 15px;
+  flex: 1;
+  background-image: linear-gradient(to bottom, #062d14, transparent);
+}
+
+.main__text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main__link:hover {
+  text-decoration: underline;
 }
