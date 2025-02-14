@@ -18,5 +18,3 @@ const responseArtists = await db
   .collection("artists")
   .insertMany(newArtistArray);
 const responseSongs = await db.collection("songs").insertMany(newSongsArray);
-
-console.log(responseArtists, responseSongs);

@@ -8,7 +8,6 @@ import { songsArray } from "../../assets/database/songs";
 
 const Artist = () => {
   const { id } = useParams();
-  console.log(artistArray);
   const { name, banner } = artistArray.filter((artist) => artist._id === id)[0];
   const songsArrayFromArtist = songsArray.filter(
     (song) => song.artist === name
