@@ -49,11 +49,7 @@ const Player = ({ duration, songsArrayFromArtist, songIndex, audio }) => {
 
     return () => clearInterval(intervalId);
   }, [isPlaying]);
-
-  const intervalId = setInterval(() => {
-    setCurrentTime(formatTime(audioPlayer.current.currentTime));
-  }, 1000);
-
+  
   return (
     <div className="player">
       <div className="player__controllers">
