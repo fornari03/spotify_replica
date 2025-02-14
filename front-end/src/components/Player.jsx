@@ -14,8 +14,8 @@ const Player = ({ duration, songsArrayFromArtist, songIndex }) => {
         <Link
           to={`/song/${
             songsArrayFromArtist[songIndex - 1]
-              ? songsArrayFromArtist[songIndex - 1].id
-              : songsArrayFromArtist[songsArrayFromArtist.length - 1].id
+              ? songsArrayFromArtist[songIndex - 1]._id
+              : songsArrayFromArtist[songsArrayFromArtist.length - 1]._id
           }`}
         >
           <FontAwesomeIcon className="player__icon" icon={faBackwardStep} />
@@ -26,7 +26,13 @@ const Player = ({ duration, songsArrayFromArtist, songIndex }) => {
           icon={faCirclePlay}
         />
 
-        <Link to={`/song/${songsArrayFromArtist[songIndex + 1] ? songsArrayFromArtist[songIndex + 1].id : songsArrayFromArtist[0].id}`}>
+        <Link
+          to={`/song/${
+            songsArrayFromArtist[songIndex + 1]
+              ? songsArrayFromArtist[songIndex + 1]._id
+              : songsArrayFromArtist[0]._id
+          }`}
+        >
           <FontAwesomeIcon className="player__icon" icon={faForwardStep} />
         </Link>
       </div>
