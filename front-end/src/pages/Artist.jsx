@@ -17,7 +17,7 @@ const Artist = () => {
   const randomIdFromArtist =
     songsArrayFromArtist[
       Math.floor(Math.random() * songsArrayFromArtist.length)
-    ].id;
+    ]._id;
 
   return (
     <div className="artist">
