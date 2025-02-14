@@ -26,6 +26,7 @@ const timeInSeconds = (timeString) => {
 };
 
 const Player = ({ duration, songsArrayFromArtist, songIndex, audio }) => {
+  duration = formatTime(timeInSeconds(duration));
   const audioPlayer = useRef();
   const progressBar = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
