@@ -4,10 +4,20 @@ import {
   faBackwardStep,
   faCirclePlay,
   faForwardStep,
+  faCirclePause,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 
-const Player = ({ duration, songsArrayFromArtist, songIndex }) => {
+const Player = ({ duration, songsArrayFromArtist, songIndex, audio }) => {
+  const audioPlayer = useRef();
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playPause = () => {
+    isPlaying ? audioPlayer.current.pause() : audioPlayer.current.play();
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className="player">
       <div className="player__controllers">
@@ -23,7 +33,8 @@ const Player = ({ duration, songsArrayFromArtist, songIndex }) => {
 
         <FontAwesomeIcon
           className="player__icon player__icon--play"
-          icon={faCirclePlay}
+          icon={isPlaying ? faCirclePause : faCirclePlay}
+          onClick={() => playPause()}
         />
 
         <Link
@@ -45,6 +56,8 @@ const Player = ({ duration, songsArrayFromArtist, songIndex }) => {
 
         <p>{duration}</p>
       </div>
+
+      <audio ref={audioPlayer} src={audio}></audio>
     </div>
   );
 };

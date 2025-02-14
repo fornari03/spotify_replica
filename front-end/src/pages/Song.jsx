@@ -43,6 +43,7 @@ const Song = () => {
           songsArrayFromArtist={songsArrayFromArtist}
           songIndex={songIndex}
           duration={songObj.duration}
+          audio={songObj.audio}
         />
 
         <div>
