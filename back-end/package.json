@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start:dev": "node --env-file=../.env api/server.js",
-    "start:watch": "node --watch --env-file=../.env api/server.js"
+    "start:watch": "node --watch --env-file=../.env api/server.js",
+    "seed-database": "node --env-file=../.env api/insertMany.js"
   },
   "keywords": [],
   "author": "",
