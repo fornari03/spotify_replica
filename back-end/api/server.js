@@ -3,7 +3,7 @@ import cors from "cors";
 import { db } from "./connect.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.VITE_PORT || 3000;
 
 app.use(cors());
 

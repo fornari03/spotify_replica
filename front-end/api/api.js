@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const URL = `http://localhost:3000`;
+const port = import.meta.env.VITE_PORT || 3000;
+const URL = `http://localhost:${port}`;
 
 const responseArtists = await axios.get(`${URL}/artists`);
 const responseSongs = await axios.get(`${URL}/songs`);
